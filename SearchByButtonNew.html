@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Search By Button</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <img src="./IMGS/Burger.jpg" width="100%" alt="">
+                <button type="button" class="btn btn-sm btn-primary btn-block" id="burger">Show All</button>
+            </div>
+
+            <div class="col-md-4">
+                <img src="./IMGS/pizza.avif" width="100%" alt="">
+                <button type="button" class="btn btn-sm btn-primary btn-block" id="pizza">Show All</button>
+            </div>
+
+            <div class="col-md-4">
+                <img src="./IMGS/Roll.jpg" width="100%" alt="">
+                <button type="button" class="btn btn-sm btn-primary btn-block" id="roll">Show All</button>
+            </div>
+
+
+        </div>
+
+        <div class="row justify-content-center Datas" style="margin-top: 40px;">
+
+        </div>
+    </div>
+
+    <script>
+
+        let myObj = [
+            {
+                id: "pizza",
+                item: "Chicken pizza",
+                price: 200
+            },
+            {
+                id: "pizza",
+                item: "Chicken tikka pizza",
+                price: 300
+            },
+            {
+                id: "pizza",
+                item: "Chicken Macroni pizza",
+                price: 250
+            },
+            {
+                id: "burger",
+                item: "Chicken burger",
+                price: 200
+            },
+            {
+                id: "burger",
+                item: "Chicken macroni pizza",
+                price: 300
+            },
+            {
+                id: "burger",
+                item: "Chicken zinger burger",
+                price: 250
+            },
+            {
+                id: "roll",
+                item: "Chicken Roll ",
+                price: 200
+            },
+            {
+                id: "roll",
+                item: "Chicken Chatni Roll ",
+                price: 300
+            },
+            {
+                id: "roll",
+                item: "Chicken Chatni Chess Roll ",
+                price: 250
+            }
+
+        ]
+
+        document.querySelectorAll('.btn').forEach(elem => {
+            elem.addEventListener('click', (e) => {
+                let arr = [];
+                myObj.filter(elem => {
+                    if (elem.id === e.target.id) {
+                        arr.push(elem);
+                        DisplayResult(arr);
+                        console.log(elem);
+                    }
+                })
+
+            })
+        })
+
+        DisplayResult(myObj);
+
+        function DisplayResult(arr) {
+            let html = "";
+            let spinner = `<div class="spinner-border text-primary" role="status">
+               <span class="sr-only">Loading...</span>
+                </div>`
+
+            arr.map((elem) => {
+                html += `<div class="card col-md-3" style="margin:10px">
+                 <div class="card-body">
+                 <h5 class="card-title">${elem.item}</h5>
+                 <p class="card-text">${elem.price}</p>
+
+                </div>
+                </div>
+                `
+            })
+            document.querySelector(".Datas").innerHTML = spinner;
+            setTimeout(() => {
+                document.querySelector(".Datas").innerHTML = "";
+                document.querySelector(".Datas").innerHTML = html;
+            }, 1000);
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

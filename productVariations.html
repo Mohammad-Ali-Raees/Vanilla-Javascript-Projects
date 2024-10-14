@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Product Page</title>
+</head>
+<style>
+    li {
+        list-style: none;
+        text-decoration: none;
+        ;
+    }
+
+    .varients img {
+        box-shadow: 0px 0px 2px 0px gray;
+        margin: 10px 4px;
+        height: 100px;
+    }
+
+    .varients img:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 12px 0px royalblue;
+        transition: .5s ease-in-out;
+    }
+
+    .btn-dark {
+        padding: 20px 40px;
+        border-radius: 0px;
+        background-color: black;
+    }
+
+    .btn-info {
+        padding: 20px 40px;
+        border-radius: 0px;
+        background-color: gray;
+        outline: none;
+        border: none;
+    }
+
+    .col-md-6 {
+        margin-top: 10px;
+
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 50px;
+        font-weight: 700;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center" style="margin: 30px 0px;">
+
+            <!--------------------PRODUCT -------------------------->
+            <div class="col-md-6">
+                <div class="box" style=" border: 1px solid rgba(128, 128, 128, 0.24); height: 100%;">
+                    <img src="../IMGS/44.jpg" class="main-img" width="100%" height="100%" alt="">
+
+                </div>
+
+            </div>
+            <div class="col-md-6" style="border-left: 1px solid rgba(128, 128, 128, 0.229); ">
+                <h2>Mariana Sofa Set</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dolore eligendi ullam, debitis tempora
+                    facilis vel impedit rem magnam, assumenda, nihil laudantium quisquam veritatis soluta asperiores.
+                    Beatae doloremque blanditiis illo.
+                </p>
+                <h4>$4000</h4>
+                <div class="varients" style="margin-top: 120px;">
+                    <img style="width: 120px;" class="second_img" src="../IMGS/11.jpg">
+                    <img style="width: 120px;" class="second_img" src="../IMGS/22.jpg">
+                    <img style="width: 120px;" class="rotate second_img" src="../IMGS/33.png">
+                </div>
+                <button type="button" class="btn btn-dark ">ADD TO CART</button>
+                <button type="button" class="btn btn-info ">ADD TO WISH-LIST</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let SecondImg = document.querySelectorAll('.second_img')
+        let MainImg = document.querySelector('.main-img')
+
+        SecondImg.forEach((elem) => {
+            elem.addEventListener('click', function (e) {
+                // console.log(e.target.src)
+                let imgSource = e.target.src;
+                MainImg.src = imgSource;
+            })
+        })
+
+    </script>
+
+
+</body>
+
+</html>

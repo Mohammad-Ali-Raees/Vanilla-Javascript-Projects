@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/f597c42206.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+<div class="container-fluid">
+
+    <div class="row" style="margin-top: 40px;">
+        <div class="col-md-6">
+            <h2 style="font-weight: 300;"> Daily Orders Count</h2>
+            <p>This Dashboard Will Display Daily Orders Count For Last 15 Days </p>
+            
+            <canvas id="order_chart" height="180" width="350"></canvas>
+          
+       
+    </div>
+
+
+    <div class="col-md-6">
+        <h2 style="font-weight: 300;"> Daily Sales Summary</h2>
+        <p>This Dashboard Will Display Sales For Last 15 Days </p>
+        
+        <canvas id="sales" height="180" width="350"></canvas>
+       
+   
+</div>
+
+
+</div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        var chart = document.getElementById('order_chart').getContext('2d');
+var charts = new Chart(order_chart, {
+    type: 'bar',
+    data: {
+        labels: ['Oct-27', 'Oct-28', 'Oct-29', 'Oct-30', 'Oct-31', 'Nov-1', 'Nov-2', 'Nov-3', 'Nov-4', 'Nov-5', 'Nov-6', 'Nov-7', 'Nov-8', 'Nov-9'],
+        datasets: [{
+            label: 'Daily Orders Count',
+            data: [89, 45, 39, 40, 39, 41,43,42,49,61,49,62,40,3],
+           
+            backgroundColor: [
+                'rgba(128, 128, 128, 0.13)',
+                'rgba(255, 192, 203, 0.644)',
+                'rgba(255, 166, 0, 0.336)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                '#4934d450',
+                'rgba(172, 255, 47, 0.246)',
+                'rgba(255, 166, 0, 0.336)',
+                'rgba(255, 192, 203, 0.644)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                
+            ],
+            borderColor: [
+                'rgba(128, 128, 128, 0.281)',
+                'palevioletred',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                '#4934d4b2',
+                'greenyellow',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                
+            ],
+            borderWidth: 1,
+           
+        },
+        {
+            type:'line',
+            label: 'Daily Orders Count',
+            data: [89,67, 48, 47, 45, 45, 45,45,51,55,49,56,45,17],
+            backgroundColor: [
+            'rgba(128, 128, 128, 0)',  
+            ],
+            borderColor: [
+                'rgba(128, 128, 128, 0.281)',
+                'palevioletred',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                '#4934d4b2',
+                'greenyellow',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                
+            ],
+           
+        },
+        ],
+        
+    },
+})
+
+
+var chart = document.getElementById('sales').getContext('2d');
+var charts = new Chart(sales, {
+    type: 'bar',
+    data: {
+        labels: ['Oct-27', 'Oct-28', 'Oct-29', 'Oct-30', 'Oct-31', 'Nov-1', 'Nov-2', 'Nov-3', 'Nov-4', 'Nov-5', 'Nov-6', 'Nov-7', 'Nov-8', 'Nov-9'],
+        datasets: [{
+            label: 'Daily Sales Summary',
+            data: [40, 55, 20, 10, 15, 18,22,22,89,40,35,35,30,3],
+            
+           
+            backgroundColor: [
+                'rgba(128, 128, 128, 0.13)',
+                'rgba(255, 192, 203, 0.644)',
+                'rgba(255, 166, 0, 0.336)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                '#4934d450',
+                '#4934d450',
+                'rgba(255, 166, 0, 0.336)',
+                'rgba(255, 166, 0, 0.336)',
+                'rgba(255, 192, 203, 0.644)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(128, 128, 128, 0.13)',
+                
+            ],
+            borderColor: [
+                'rgba(128, 128, 128, 0.281)',
+                'palevioletred',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                '#4934d4b2',
+                'greenyellow',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 159, 64, 1)',
+                'palevioletred',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 0.2)',
+                
+            ],
+            borderWidth: 1,
+
+            
+           
+        }],
+        
+        
+    },
+    
+})
+    </script>
+</body>
+</html>

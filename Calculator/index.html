@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+
+    <div class="calculator">
+<form  name="forms">
+        <input type="text" id="answer" name="answer" placeholder="Enter Any Number To Calculate"><br>
+
+        <input type="button" value="C" onclick="forms.answer.value=''" class="btn2"><br>
+
+        <input type="button" value="1" onclick="forms.answer.value+='1'" class="btn1">
+        <input type="button" value="2" onclick="forms.answer.value+='2'" class="btn1">
+        <input type="button" value="3" onclick="forms.answer.value+='3'" class="btn1">
+<br>
+        <input type="button" value="4" onclick="forms.answer.value+='4'" class="btn1">
+        <input type="button" value="5" onclick="forms.answer.value+='5'" class="btn1">
+        <input type="button" value="6" onclick="forms.answer.value+='6'" class="btn1">
+<br>
+        <input type="button" value="7" onclick="forms.answer.value+='7'" class="btn1">
+        <input type="button" value="8" onclick="forms.answer.value+='8'" class="btn1">
+        <input type="button" value="9" onclick="forms.answer.value+='9'" class="btn1">
+<br>
+        <input type="button" value="+" onclick="forms.answer.value+='+'" class="btn1">
+        <input type="button" value="0" onclick="forms.answer.value+='0'" class="btn1">
+        <input type="button" value="-" onclick="forms.answer.value+='-'" class="btn3"> 
+<br>
+        <input type="button" value="/" onclick="forms.answer.value+='/'" class="btn3">  
+        <input type="button" value="*" onclick="forms.answer.value+='*'" class="btn3">  
+        <input type="button" value="." onclick="forms.answer.value+='.'" class="btn3">  
+       
+<br> 
+<input type="button" value="(" onclick="forms.answer.value+='('" class="btn1">  
+<input type="button" value=")" onclick="forms.answer.value+=')'" class="btn1">  
+<input type="button" value="%" onclick="forms.answer.value+='%'" class="btn1">   
+       
+ 
+<br>
+
+<input type="button" value="%" onclick="forms.answer.value+=''" class="btn1">  
+<input type="button" value=">" onclick="forms.answer.value+='>'" class="btn1">  
+<input type="button" value="<" onclick="forms.answer.value+='<'" class="btn1">   
+
+ <br>
+
+ <input type="button" value="tan" onclick="tan_func()" class="btn1">  
+ <input type="button" value=">" onclick="forms.answer.value+='>'" class="btn1">  
+ <input type="button" value="<" onclick="forms.answer.value+='<'" class="btn1">   
+
+ <br>
+ <input type="button" value="=" onclick="forms.answer.value=eval(forms.answer.value)" class="btn2">
+
+
+
+    </div>
+</form>
+
+<script>
+var flag = flag=0;
+function tan_func() {
+    flag += 1;
+    form.answer.value += Math.tan();
+}
+
+
+
+
+</script>
+
+</body>
+</html>

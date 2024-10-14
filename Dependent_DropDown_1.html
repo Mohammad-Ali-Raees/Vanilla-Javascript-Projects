@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Dependent Dropdown</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row justify-content-center" style="margin: 200px 0px;">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Products</label>
+                    <select class="form-control" id="CountryDropDown">
+                        <option value="" selected="selected">Select</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Types</label>
+                    <select class="form-control" id="CityDropDown">
+                        <option value="" selected="selected">Select</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+         var worldData = {
+            "Custom Patches": {
+                "Leather Patches":"Leather Patches" ,
+                "Woven Patches":"Woven Patches" ,
+                "Sublimated Patches":"Sublimated Patches" ,
+               
+            },
+            "Hoodies": {
+                "Custom Hoodie":"Custom Hoodie" ,
+                "Full Zip Hoodie":"Full Zip Hoodie" ,
+                "Zipper Hoodie":"Zipper Hoodie" ,
+               
+            },
+            
+
+        };
+
+        let CountryList = document.querySelector("#CountryDropDown");
+        let City = document.querySelector("#CityDropDown");
+
+
+        for(let country in worldData){
+            CountryList.options[CountryList.options.length] = new Option(country, country)
+        }
+
+        CountryList.addEventListener('change',(e)=>{
+            City.length = 1;
+            for(let city in worldData[e.target.value]){
+                City.options[City.options.length] = new Option(city, city)
+               
+            }
+           console.log(e.target.value);
+           
+        })
+
+
+        City.addEventListener('change',(e)=>{
+            console.log(e.target.value);
+        })
+
+    </script>
+
+
+</body>
+</html>

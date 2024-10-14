@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="als"></div>
+    <div class="als1"></div>
+    <button type="button" class="btn btn-sm btn-info" onclick="ClickMe()"></button>
+    <div class="als3"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+
+
+        let a = 20;
+        let b = 30;
+        let screens = (message, type) => {
+            let alerts1 = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+             <strong>${message}</strong> ${message}.
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+               </div>`;
+            //  document.querySelector('.als1').innerHTML = alerts1;
+            $('.als1').append(alerts1)
+
+        }
+        function myfun() {
+            if (a >= b) {
+                screens("Some Error", "danger");
+            } else {
+                screens("Message Success", "success");
+            }
+
+        }
+
+
+        let Includes = ()=>{
+            let arr = [1,2,3,4,5,6,7];
+
+            if(arr.includes(10)){
+                screens("Message Success", "success");
+            }else{
+                screens("Some Error", "danger");
+            }
+        }
+
+Includes();
+
+        screens("Hello World danger", "danger");
+        screens("Hello World warning", "warning");
+        screens("Hello World info", "info");
+        screens("Hello World primary", "primary");
+
+      setTimeout(() => {
+        myfun();
+
+      }, 3000);
+
+
+       
+
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

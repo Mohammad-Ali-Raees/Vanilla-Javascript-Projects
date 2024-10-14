@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button type="button" class="pizza btn btn-primary" value="pizza">Pizza</button>
+    <button type="button" class="burger btn btn-warning" value="burger">Burger</button>
+    <button type="button" class="sandwich btn btn-danger" value="sandwich">Sandwich</button>
+
+    <div class="items"></div>
+    <div class="items1"></div>
+
+
+
+    <script>
+
+        let pizza = document.querySelector('.pizza')
+        let burger = document.querySelector('.burger')
+        let sandwich = document.querySelector('.sandwich')
+
+        let pizzaValue = document.querySelector('.pizza').value
+        let burgerValue = document.querySelector('.burger').value
+        let sandwichValue = document.querySelector('.sandwich').value
+
+        let html;
+        let html1;
+        let html2;
+        let html3;
+
+        let loader = `<div class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>`;
+        let myObj = [
+            {
+                id: "pizza",
+                item: "Chicken pizza",
+                price: 200
+            },
+            {
+                id: "pizza",
+                item: "Chicken tikka pizza",
+                price: 300
+            },
+            {
+                id: "pizza",
+                item: "Chicken Macroni pizza",
+                price: 250
+            },
+            {
+                id: "burger",
+                item: "Chicken burger",
+                price: 200
+            },
+            {
+                id: "burger",
+                item: "Chicken macroni pizza",
+                price: 300
+            },
+            {
+                id: "burger",
+                item: "Chicken zinger burger",
+                price: 250
+            },
+            {
+                id: "sandwich",
+                item: "chicken sandwich ",
+                price: 200
+            },
+            {
+                id: "sandwich",
+                item: "chicken tikka sandwich",
+                price: 300
+            },
+            {
+                id: "sandwich",
+                item: "sandwich Macroni ",
+                price: 250
+            }
+
+        ]
+
+
+
+        for (var k in myObj) {
+            console.log(myObj[k])
+            html += `<div class="item card" >
+        <div class="header">${myObj[k].id}</div>
+        <div class="item_body"><h4>${myObj[k].item}</h4></div>
+        <div class="item_price"><h4>${myObj[k].price}</h4></div>
+        </div>`
+        }
+
+        document.querySelector('.items').innerHTML = html
+
+
+
+
+        pizza.addEventListener('click', function () {
+            myObj.find(elem => {
+                if (elem.id === pizzaValue) {
+                    console.log(elem);
+                    html1 += `<div class="item" >
+        <div class="header">${elem.id}</div>
+        <div class="item_body"><h4>${elem.item}</h4></div>
+        <div class="item_price"><h4>${elem.price}</h4></div>
+        </div>`
+                }
+                document.querySelector('.items').innerHTML = loader;
+                setTimeout(() => {
+                    document.querySelector('.items').innerHTML = html1;
+                }, 2000);
+            })
+
+        })
+
+        sandwich.addEventListener('click', function () {
+            myObj.find(elem => {
+                if (elem.id === sandwichValue) {
+                    console.log(elem);
+
+                    html2 += `<div class="item" >
+        <div class="header">${elem.id}</div>
+        <div class="item_body"><h4>${elem.item}</h4></div>
+        <div class="item_price"><h4>${elem.price}</h4></div>
+        </div>`
+                }
+                document.querySelector('.items').innerHTML = loader;
+                setTimeout(() => {
+                    document.querySelector('.items').innerHTML = html2;
+                }, 2000);
+
+            })
+
+        })
+
+
+        burger.addEventListener('click', function () {
+            myObj.find(elem => {
+                if (elem.id === burgerValue) {
+                    console.log(elem);
+
+                    html3 += `<div class="item" >
+        <div class="header">${elem.id}</div>
+        <div class="item_body"><h4>${elem.item}</h4></div>
+        <div class="item_price"><h4>${elem.price}</h4></div>
+        </div>`
+                }
+                document.querySelector('.items').innerHTML = loader;
+                setTimeout(() => {
+                    document.querySelector('.items').innerHTML = html3;
+                }, 2000);
+
+            })
+
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

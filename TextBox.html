@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <title>Text Box</title>
+</head>
+<style>
+    body {
+        background-color: #30336b;
+        width: 100%;
+        height: 100vh;
+    }
+
+    textarea {
+        width: 100%;
+        border: 1px solid #dddddd;
+    }
+
+    .box {
+
+        position: absolute;
+        top: 50%;
+        transform: translate(-0%, -50%);
+
+    }
+
+    .bold {
+        font-weight: 700;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center" style="height: 100vh;">
+            <div class="col-md-8 box">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Text Box</h4>
+                    </div>
+                    <div class="card-body">
+                        <textarea class="texts" id="texts" cols="50" rows="10" value=""></textarea>
+                        <div class="buttons">
+
+                            <button type="button" class="btn btn-sm btn-info bold">B</button>
+                            <button type="button" class="btn btn-sm btn-info  fst-italic">I</button>
+                            <button type="button" class="btn btn-sm btn-info  underline"><u>U</u></button>
+                            <button type="button" class="btn btn-sm btn-info  lineThrough"><del>line
+                                    Through</del></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let words = document.querySelector('#texts')
+        let bold = document.querySelector('.bold');
+        bold.addEventListener('click', (e) => {
+
+            words.classList.toggle('bold')
+
+        })
+
+        document.querySelector('.fst-italic').addEventListener('click', () => {
+            words.style.fontStyle = "italic";
+        })
+
+        document.querySelector('.underline').addEventListener('click', () => {
+            words.style.textDecoration = "underline";
+        })
+
+        document.querySelector('.lineThrough').addEventListener('click', () => {
+            words.style.textDecoration = "line-through";
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

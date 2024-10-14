@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI BILLING</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    .box_01 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .container {
+        margin-bottom: 40px !important;
+    }
+
+    p {
+        color: gray;
+        font-size: 14px;
+    }
+
+
+
+    .dynmic_value {
+        color: gray;
+        font-size: 15px;
+    }
+
+    input {
+        height: 40px !important;
+        border-radius: 0px !important;
+    }
+
+    .fa-trash {
+        color: red !important;
+        display: flex;
+        justify-content: start;
+        margin-left: 20px !important;
+        font-size: 20px;
+        align-items: center;
+        height: 35px;
+    }
+
+    .fa-trash:hover {
+        cursor: pointer;
+    }
+
+    input::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    .FinalTotal {
+        font-weight: 800;
+        font-size: 25px;
+        text-transform: uppercase;
+    }
+
+    .date {
+        font-size: 20px;
+        color: black;
+        font-weight: 600;
+
+    }
+
+
+    .switch {
+        margin-top: 50px;
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+    .dark {
+        background-color: #2f3640;
+        color: white;
+    }
+</style>
+
+<body>
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-12">
+                <div class="box_01" style="padding: 50px 0px;">
+                    <h4>UP OPTICAL</h4>
+                    <p class="paragraph"> Lorem ipsum dolor sit amet <br /> consectetur adipisicing elit.</p>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6">
+                <label class="switch">
+                    <input type="checkbox" class="checkBox" onchange="ChangeCheckBoxEvent()">
+                    <span class="slider round"></span>
+                </label>
+                <h6>Change Mode</h6>
+            </div>
+            <div class="col-md-12 col-12">
+                <h1 style="font-size: 50px; font-weight: 600;">INVOICE</h1>
+                <div class="row">
+                    <div class="box1 col-md-6">
+                        <div class="box2 mt-4">
+                            <span style="font-weight: 700;">Invoice-No:</span><span class="dynmic_value"><input
+                                    type="text" class="form-control form-control-sm"
+                                    placeholder="Enter Invoice Number"></span>
+                            <br><br>
+                            <span style="font-weight: 700;">Bill To:</span><span class="dynmic_value"
+                                style="margin-left: 40px;"><input type="text" class="form-control form-control-sm"
+                                    placeholder="Enter Invoice Number"></span>
+                        </div>
+                    </div>
+                    <div class="box1 col-md-6">
+                        <div class="box2 mt-4">
+                            <span style="font-weight: 700;">Date:</span><span class="dynmic_value"> <input type="text"
+                                    class="form-control form-control-sm date" disabled
+                                    placeholder="Enter Invoice Number"></span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-sm btn-success float-right  addRow">ADD</button>
+
+                </div>
+                <table class="table table-bordered" style="margin: 40px 0px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="MyRows">
+
+                        <tr>
+                            <th scope="row" class="counter">1</th>
+                            <td><input type="text" class="form-control form-control-sm"
+                                    placeholder="Enter Product Name"></td>
+                            <td><input type="number" class="form-control form-control-sm Price" id="Price"
+                                    onkeyup="PriceNumber(this)" placeholder="Enter Product Price"></td>
+                            <td><input type="number" class="form-control form-control-sm qty" onkeyup="Qty(this)"
+                                    placeholder="Enter Quantity" id="qty"></td>
+                            <td><input type="number" class="form-control form-control-sm TotalPriceAmount"
+                                    id="TotalPriceAmount" disabled>
+                            </td>
+                            <td> <i class="fa-solid fa-trash DeleteRow" onclick="DeleteRow(this)"></i></td>
+                        </tr>
+
+
+
+                    </tbody>
+
+                </table>
+
+                <hr style="margin-top: -30px;">
+                <div style="width: 100%;">
+
+
+                    <span class="float-right FinalTotal">Total: <span class="FinalTotal1"></span></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let addRow = document.querySelector('.addRow');
+        let counter = 2;
+        let TotalPriceAmount = document.querySelectorAll('#TotalPriceAmount');
+        let finalTotal = 0
+        let day = new Date().getDay();
+        let month = new Date().getMonth();
+        let year = new Date().getFullYear();
+        document.querySelector('.date').value = `${day}-${month}-${year}`
+        /*-----------------------------APPEND NEW ROW IN TABLE------------------------------------------------*/
+        addRow.addEventListener("click", (e) => {
+
+            let html = "";
+            html =
+                `
+                <tr>
+                            <th scope="row" class="counter">${counter}</th>
+                            <td><input type="text" class="form-control form-control-sm"
+                                    placeholder="Enter Product Name"></td>
+                            <td><input type="number" class="form-control form-control-sm Price" id="Price"
+                                    onkeyup="PriceNumber(this)" placeholder="Enter Product Price"></td>
+                            <td><input type="number" class="form-control form-control-sm qty" onkeyup="Qty(this)"
+                                    placeholder="Enter Quantity" id="qty"></td>
+                            <td><input type="number" class="form-control form-control-sm TotalPriceAmount" id="TotalPriceAmount" disabled>
+                            </td>
+                            <td> <i class="fa-solid fa-trash DeleteRow" onclick="DeleteRow(this)"></i></td>
+                        </tr>
+
+           `
+            counter++
+            $('.MyRows').append(html);
+
+        })
+
+
+        /*---------------------------------------DELETE ROW--------------------------------------------------*/
+        let DeleteRow = (e) => {
+            e.parentElement.parentElement.remove();
+            counter--
+            Starts();
+        }
+
+
+        /*--------------------------------------ONCHANGE PRICE FUNCTION---------------------------------------------*/
+        function PriceNumber(e) {
+            let price = e.value;
+            let Qty = e.parentElement.parentElement.children[3].children[0].value
+            if (isNaN(parseInt(Qty)) || isNaN(parseInt(price))) {
+                return { price, Qty } = 0;
+            }
+            let total = 0;
+            total = parseInt(price) * parseInt(Qty);
+
+            e.parentElement.parentElement.children[4].children[0].setAttribute("value", total);
+
+            Starts()
+
+
+        }
+        /*---------------------------------------ONCHANGE QUANTITY-------------------------------------------------*/
+        let Qty = (e) => {
+            let Quantity = e.value;
+            let price = e.parentElement.parentElement.children[2].children[0].value;
+            if (isNaN(parseInt(Quantity)) || isNaN(parseInt(price))) {
+                return { price, Quantity } = 0;
+            }
+            let total = 0;
+            total = parseInt(price) * parseInt(Quantity);
+            e.parentElement.parentElement.children[4].children[0].setAttribute("value", total);
+
+            Starts();
+        }
+        /*---------------------------------------ONCHANGE TOTAL PRICE-------------------------------------------------*/
+        function Starts() {
+            let finalTotal = 0
+            var arr = document.querySelectorAll('#TotalPriceAmount');
+          arr.forEach((elem)=>{
+            finalTotal += elem.value;
+            // for (var i = 0; i < arr.length; i++) {
+            //     if (parseInt(arr[i].value))
+            //         finalTotal += parseInt(arr[i].value);
+            // }
+
+            let final = document.querySelector('.FinalTotal1').innerHTML = finalTotal.toLocaleString();
+
+            console.log(elem.value)
+          })
+
+        }
+
+        function ChangeCheckBoxEvent() {
+
+            document.body.classList.toggle('dark')
+            document.querySelector('.counter').classList.toggle('dark')
+            document.querySelector('.paragraph').classList.toggle('dark')
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

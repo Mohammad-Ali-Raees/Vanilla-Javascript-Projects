@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Password Checker</title>
+    <style>
+        body {
+            background-color: #2d3436;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);">
+                <div class="form-group">
+                    <label for="pass" class="text-light">Password</label>
+                    <input type="password" class="form-control form-control-sm pass" placeholder="Enter Password">
+                    <h6 class="text-light text-center count"></h6>
+                    <div class="progress" style="margin: 10px;">
+
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                            style="width: 0%;"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let password = document.querySelector('.pass')
+        let progress = document.querySelector('.progress-bar')
+        let width = 33;
+        password.addEventListener("keyup", () => {
+            if (password.value.length >= 3) {
+                progress.style.width = width + "%";
+                progress.style.background = "#d63031"
+                document.querySelector('.count').innerHTML = "Weak"
+            } if (password.value.length > 6) {
+                progress.style.width = 66 + "%";
+                progress.style.background = "#fbc531"
+                document.querySelector('.count').innerHTML = "Medium"
+            } if (password.value.length >= 8) {
+                progress.style.width = 100 + "%";
+                progress.style.background = "#44bd32"
+                document.querySelector('.count').innerHTML = "Strong"
+            } if (password.value.length <= 1) {
+                progress.style.width = 0 + "%";
+                progress.style.background = "pink"
+                document.querySelector('.count').innerHTML = ""
+            }
+        }) 
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Stop Watch</title>
+    <style>
+        body {
+            background-color: #192a56;
+        }
+
+        h3 {
+            font-size: 120px;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        span {
+            font-size: 70px;
+            font-weight: 600;
+           
+        }
+
+        .box {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+
+
+        }
+
+        .box-2 {
+            margin-top: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="box">
+        <div class="box-1">
+            <h3 class="text-center">Website Back In</h3>
+           
+        </div>
+        <div class="box2">
+            <span class="days text-info ">DAYS</span> <span class="text-light">:</span>
+            <span class="hours text-warning">00</span> <span class="text-light">:</span>
+            <span class="minutes text-info">00</span><span class="text-light">:</span>
+            <span class="seconds text-warning">00</span>
+        </div>
+
+
+    </div>
+
+
+
+
+    <script>
+        let days = document.querySelector(".days");
+        let hours = document.querySelector('.hours');
+        let minutes = document.querySelector('.minutes');
+        let seconds = document.querySelector('.seconds');
+
+        let Days = 3;
+        let Seconds = 60;
+        let Minutes = 60;
+        let Hours = Days * 24 - 24;
+
+
+
+
+
+        function display() {
+            Seconds--
+            if (Seconds < 1) {
+                Seconds = 60
+                Minutes--
+            }
+            if (Minutes == 60) {
+                Minutes--
+                Hours--
+            }
+            if (Hours < 1) {
+
+                Days--
+            }
+
+
+            days.innerHTML = Days - 1 + "DAYS";
+            seconds.innerHTML = Seconds + "Seconds";
+            minutes.innerHTML = Minutes <= 10 ? "0" + Minutes : Minutes + "Minutes";
+            hours.innerHTML = Hours <= 10 ? "0" + Hours : Hours + "Hours";
+
+
+
+        }
+        setInterval(() => {
+            display();
+        }, 1000)
+
+    </script>
+</body>
+
+</html>

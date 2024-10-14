@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+    .box {
+        width: 100%;
+        height: 100vh;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    .box img {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        transition: .5s ease-in-out;
+
+    }
+</style>
+
+
+<body>
+
+    <div class="box">
+        <img src="../Imag_2/1.jpg" class="MyImages" alt="Image_1">
+        <img src="../Imag_2/2.jpg" class="MyImages" alt="Image_2">
+        <img src="../Imag_2/3.jpg" class="MyImages" alt="Image_3">
+
+    </div>
+    <button class="previous">Previous</button>
+    <button class="next">Next</button>
+    <script>
+        let myimags = document.querySelectorAll('.MyImages')
+        let counter = 0;
+
+        myimags.forEach((elem, index) => {
+            elem.style.left = `${100 * index}%`
+        })
+
+
+        document.querySelector('.previous').addEventListener("click", () => {
+            if (counter <= 0) {
+                counter = 0
+            } else {
+                counter--
+                forword();
+            }
+
+        })
+
+
+        document.querySelector('.next').addEventListener('click', function (e) {
+            if (counter >= 2) {
+                counter = 2
+            } else {
+                counter++
+                forword();
+                console.log(counter)
+            }
+
+
+        })
+
+
+        function forword() {
+            myimags.forEach(elem => {
+                elem.style.transform = `translateX(-${counter * 100}%)`
+
+            })
+        }
+
+    </script>
+</body>
+
+</html>
